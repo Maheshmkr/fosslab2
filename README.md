@@ -36,3 +36,42 @@ express-blog-backend/
 │   ├── auth.js
 │   └── posts.js
 └── README.md
+
+
+7. Test the API Routes
+
+Use Postman, Thunder Client, or curl to test.
+
+✅ Register
+POST http://localhost:4000/api/auth/register
+Body (JSON):
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "123456"
+}
+
+✅ Login
+POST http://localhost:4000/api/auth/login
+Body (JSON):
+{
+  "email": "john@example.com",
+  "password": "123456"
+}
+
+
+You’ll receive a token in the response.
+
+✅ Create Post
+POST http://localhost:4000/api/posts
+Headers:
+Authorization: Bearer <token>
+
+Body (JSON):
+{
+  "title": "My First Blog",
+  "slug": "my-first-blog",
+  "body": "This is my first post",
+  "tags": ["node", "express"],
+  "published": true
+}
